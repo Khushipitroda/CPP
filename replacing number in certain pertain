@@ -1,0 +1,37 @@
+/*A game development company wants to design a brain game application for kids. There are different types of tasks to be designed for the game. Among all the tasks, there is one task in which each digit of an existing number has to be replaced with another digit. Consider the following table: 
+Existing Numbers: 0 1 2 3 4 5 6 7 8 9 Replace By: 9 8 7 6 5 4 3 2 1 0 
+Digit 0 has to be replaced with 9, 1 has to be replaced with 8, 2 has to be replaced with land the rest of the numbers have to be replaced accordingly. 
+Instructions: • The system does not allow any kind of hard coded input value/values. • The written program code by the candidate will tie verified against the inputs that are supplied from the system. • For more clarification, please read the following points carefully till the end. 
+Constraints • 0 <= N <= 1000000 • The system should generate a message as -Wrong Input' if the value of N is out of range. 
+Example: Input 105201 Output: 894798 
+Example2: Input: 10000001 Output: Wrong Input 
+Input Format • The candidate has to write the code to accept a single integer value for N without any additional message. Output Format: • The written program code should generate the output as a single integer value as per logic. • Additional messages in the output will result inlhe failure of test cases.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+    long int n, reversedNumber = 0, r, reversedNumber1=0;
+
+    cin >> n;
+    if(n>1000000){
+        "Wrong Input";
+    }
+    else{
+        while(n != 0) {
+            r = n%10;
+            r=((r+1)*9)%(r*10);
+            reversedNumber = reversedNumber*10 + r;
+            n /= 10;
+        }
+        while( reversedNumber != 0) {
+            r = reversedNumber%10;
+            reversedNumber1 = reversedNumber1*10 + r;
+            reversedNumber /= 10;
+        }
+
+    cout << reversedNumber1;
+    }
+
+    return 0;
+}
